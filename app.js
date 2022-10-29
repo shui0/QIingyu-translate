@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 //引入路由
 const buck_data_router = require('./router/inforouter')
+const img_data_router = require('./router/img')
 // 导入@hapi/joi
 const joi = require('joi')
 
@@ -30,9 +31,10 @@ app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
 // 注册登录路由模块
-app.use('/api', buck_data_router)
+app.use('/api/buck', buck_data_router)
+app.use('/api/img', img_data_router)
 
 
 app.listen(8080,()=>{
-    console.log('api serve running')
+    console.log('api serve running 8080')
 })
